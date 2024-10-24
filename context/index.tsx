@@ -14,19 +14,14 @@ const config = getDefaultConfig({
   chains: [optimismSepolia],
   transports: {
     [optimismSepolia.id]: http(
-      `https://optimism-sepolia.infura.io/v3/${process.env
-        .NEXT_PUBLIC_INFURA_API_KEY!}`,
+      `https://optimism-sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_API_KEY!}`
     ),
   },
   ssr: true,
 });
 const client = new QueryClient();
 
-export default function ContextProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ContextProvider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={config} reconnectOnMount={true}>
       <QueryClientProvider client={client}>
