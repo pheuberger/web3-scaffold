@@ -10,12 +10,12 @@ import { optimismSepolia } from "wagmi/chains";
 
 const config = getDefaultConfig({
   appName: process.env.NEXT_PUBLIC_APP_NAME!,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID!,
+  projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID!,
   chains: [optimismSepolia],
   transports: {
     [optimismSepolia.id]: http(
       `https://optimism-sepolia.infura.io/v3/${process.env
-        .NEXT_PUBLIC_INFURA_API_KEY!}`
+        .NEXT_PUBLIC_INFURA_API_KEY!}`,
     ),
   },
   ssr: true,
